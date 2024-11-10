@@ -5,40 +5,54 @@ get("/") do
   redirect("/add")
 end
 
-get("/ad") do
+get("/add") do
   erb(:add_form)
 end
 
 get("/wizard_add") do
-  @first_num = params.fetch("first_num").to_f
+  @first_num = params.fetch("first_number").to_f
+  @second_num = params.fetch("second_number").to_f
 
   @result = @first_num + @second_num
+
   erb(:add_result)
 end
 
 get("/subtract") do
-  erb(:sub_form)
+  erb(:subtract_form)
 end
 
 get("/wizard_subtract") do
-  @first_num = params.fetch("first_num").to_f
-  @second_num = params.fetch("second_num").to_f
+  @first_num = params.fetch("first_number").to_f
+  @second_num = params.fetch("second_number").to_f
 
-  erb(:sub_result)
+  @result = @second_num - @first_num
+
+  erb(:subtract_result)
 end
 
 get("/multiply") do
-  erb(:multiplication_form)
+  erb(:multiply_form)
 end
 
-get("/wizard multiply") do
-  erb(:mult_result)
+get("/wizard_multiply") do
+  @first_num = params.fetch("first_number").to_f
+  @second_num = params.fetch("second_number").to_f
+
+  @result = @first_num * @second_num
+
+  erb(:multiply_result)
 end
 
 get("/divide") do
-  erb(:div_form)
+  erb(:divide_form)
 end
 
 get("/wizard_divide") do
-  erb(:div_result)
+  @first_num = params.fetch("first_number").to_f
+  @second_num = params.fetch("second_number").to_f
+
+  @result = @first_num / @second_num
+
+  erb(:divide_result)
 end
